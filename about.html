@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Pokémon Team Builder</title>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+        }
+        header, footer {
+            background-color: #2d72d9;
+            color: white;
+            padding: 15px 0;
+        }
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+        }
+        header a img {
+            height: 50px;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 24px;
+            flex-grow: 1;
+            text-align: center;
+        }
+        nav {
+            display: flex;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 18px;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        main {
+            flex: 1;
+            padding: 20px;
+            text-align: center;
+        }
+        h2 {
+            color: #2d72d9;
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin: 10px 0;
+        }
+        img.profile-pic {
+            width: 230px; /* Increased size */
+            height: 250px; /* Increased size */
+            border-radius: 50%;
+            margin: 20px 0;
+        }
+        a {
+            color: #2d72d9;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        footer {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html">
+            <img src="logo.png" alt="Site Logo">
+        </a>
+        <h1>Pokémon Team Builder</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="customize.html">Customize</a>
+            <a href="about.html">About</a>
+        </nav>
+    </header>
+
+    <main>
+        <h2>About Pokémon Team Builder</h2>
+        <img src="creator.jpeg" alt="Soren Atkinson" class="profile-pic">
+        <p>
+            Hi, I'm Soren Atkinson, and I created the Pokémon Team Builder as part of a college project. As a passionate Pokémon fan and aspiring developer, I wanted to combine my love for the series with my web development skills to build something useful for fellow fans.
+        </p>
+        <p>
+            This project was an opportunity to dive deep into web development concepts, including APIs, responsive design, and user interactivity. Using <a href="https://pokeapi.co/" target="_blank">PokéAPI</a> as the backbone for Pokémon data, I was able to create a tool that generates teams based on customizable rules and preferences.
+        </p>
+        <p>
+            The process taught me a lot about problem-solving, coding best practices, and the joy of creating something others can enjoy. I hope you find the Pokémon Team Builder helpful and fun to use!
+        </p>
+        <p>
+            If you have feedback or want to connect, feel free to reach out. Thanks for visiting!
+        </p>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Pokémon Team Builder. All Rights Reserved.</p>
+        <p>Data and images provided by <a href="https://pokeapi.co/" target="_blank" style="color: white;">PokéAPI</a>. Pokémon and Pokémon character names are trademarks of Nintendo.</p>
+    </footer>
+</body>
+</html>

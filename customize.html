@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customize Pokémon Team</title>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+        }
+        header, footer {
+            background-color: #2d72d9;
+            color: white;
+            padding: 15px 0;
+        }
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+        }
+        header a img {
+            height: 50px;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 24px;
+            flex-grow: 1;
+            text-align: center;
+        }
+        nav {
+            display: flex;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 18px;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        main {
+            flex: 1;
+            padding: 20px;
+            text-align: center;
+        }
+        .form-group {
+            margin: 20px 0;
+        }
+        label {
+            display: block;
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+        input[type="checkbox"] {
+            margin-right: 10px;
+        }
+        select, input[type="number"] {
+            padding: 8px;
+            font-size: 16px;
+            margin-top: 5px;
+            width: 200px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        footer {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html">
+            <img src="logo.png" alt="Site Logo">
+        </a>
+        <h1>Pokémon Team Builder</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Customize Your Pokémon Team</h2>
+        <form id="customizeForm">
+            <div class="form-group">
+                <label>
+                    <input type="checkbox" id="noDuplicates" checked>
+                    No Duplicates (Ensure no Pokémon repeats)
+                </label>
+            </div>
+            <div class="form-group">
+                <label>
+                    <input type="checkbox" id="includeLegendaries" checked>
+                    Include Legendary Pokémon
+                </label>
+            </div>
+            <div class="form-group">
+                <label>
+                    <input type="checkbox" id="onlySpecificTypes">
+                    Only Include Pokémon of Specific Type
+                </label>
+                <select id="typeSelector" disabled>
+                    <option value="normal">Normal</option>
+                    <option value="fire">Fire</option>
+                    <option value="water">Water</option>
+                    <option value="grass">Grass</option>
+                    <option value="electric">Electric</option>
+                    <option value="ice">Ice</option>
+                    <option value="fighting">Fighting</option>
+                    <option value="poison">Poison</option>
+                    <option value="ground">Ground</option>
+                    <option value="flying">Flying</option>
+                    <option value="psychic">Psychic</option>
+                    <option value="bug">Bug</option>
+                    <option value="rock">Rock</option>
+                    <option value="ghost">Ghost</option>
+                    <option value="dark">Dark</option>
+                    <option value="dragon">Dragon</option>
+                    <option value="steel">Steel</option>
+                    <option value="fairy">Fairy</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>
+                    <input type="checkbox" id="generationLimit">
+                    Include Pokémon from Specific Generations
+                </label>
+                <div id="generationOptions" style="display: none;">
+                    <label>
+                        <input type="checkbox" class="generationCheckbox" value="1">
+                        At least one Gen 1 Pokémon
+                    </label>
+                    <label>
+                        <input type="checkbox" class="generationCheckbox" value="2">
+                        At least one Gen 2 Pokémon
+                    </label>
+                    <label>
+                        <input type="checkbox" class="generationCheckbox" value="3">
+                        At least one Gen 3 Pokémon
+                    </label>
+                    <label>
+                        <input type="checkbox" class="generationCheckbox" value="4">
+                        At least one Gen 4 Pokémon
+                    </label>
+                    <label>
+                        <input type="checkbox" class="generationCheckbox" value="5">
+                        At least one Gen 5 Pokémon
+                    </label>
+                    <label>
+                        <input type="checkbox" class="generationCheckbox" value="6">
+                        At least one Gen 6 Pokémon
+                    </label>
+                    <label>
+                        <input type="checkbox" class="generationCheckbox" value="7">
+                        At least one Gen 7 Pokémon
+                    </label>
+                    <label>
+                        <input type="checkbox" class="generationCheckbox" value="8">
+                        At least one Gen 8 Pokémon
+                    </label>
+                    <label>
+                        <input type="checkbox" class="generationCheckbox" value="9">
+                        At least one Gen 9 Pokémon
+                    </label>
+                </div>
+            </div>
+            <button type="button" onclick="applyRules()">Apply Rules</button>
+        </form>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Pokémon Team Builder. All Rights Reserved.</p>
+        <p>Data and images provided by <a href="https://pokeapi.co/" target="_blank" style="color: white;">PokéAPI</a>. Pokémon and Pokémon character names are trademarks of Nintendo.</p>
+    </footer>
+
+    <script>
+        const rules = {
+            noDuplicates: true,
+            includeLegendaries: true,
+            onlySpecificTypes: false,
+            selectedType: null,
+            generationRules: []
+        };
+
+        // Enable/disable type selector based on "Only Specific Types" checkbox
+        document.getElementById("onlySpecificTypes").addEventListener("change", function () {
+            const typeSelector = document.getElementById("typeSelector");
+            typeSelector.disabled = !this.checked;
+        });
+
+        // Show/hide generation options based on "Include Generations" checkbox
+        document.getElementById("generationLimit").addEventListener("change", function () {
+            const generationOptions = document.getElementById("generationOptions");
+            generationOptions.style.display = this.checked ? "block" : "none";
+        });
+
+        function applyRules() {
+            // Capture rule selections
+            rules.noDuplicates = document.getElementById("noDuplicates").checked;
+            rules.includeLegendaries = document.getElementById("includeLegendaries").checked;
+            rules.onlySpecificTypes = document.getElementById("onlySpecificTypes").checked;
+            rules.selectedType = rules.onlySpecificTypes
+                ? document.getElementById("typeSelector").value
+                : null;
+
+            // Capture selected generation rules
+            rules.generationRules = Array.from(document.querySelectorAll(".generationCheckbox:checked")).map(cb => parseInt(cb.value));
+
+            // Save rules to localStorage
+            localStorage.setItem("pokemonRules", JSON.stringify(rules));
+            alert("Rules applied! They will be used in the Randomizer.");
+        }
+    </script>
+</body>
+</html>

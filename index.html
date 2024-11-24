@@ -87,6 +87,18 @@
         footer {
             text-align: center;
         }
+
+        @media (max-width: 768px) {
+            .team {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .team {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 <body>
@@ -132,6 +144,11 @@
             }
         };
 
+        // Save rules to localStorage
+        function saveRules() {
+            localStorage.setItem("pokemonRules", JSON.stringify(rules));
+        }
+
         async function fetchAllPokemon() {
             const url = `${API_BASE}?limit=1008`; // Fetch all Pokémon
             try {
@@ -159,7 +176,13 @@
                 const randomPokemon = getRandomPokemon();
 
                 // Fetch detailed Pokémon data
-                const pokemonDetails = await fetch(randomPokemon.url).then(res => res.json());
+                let pokemonDetails;
+                try {
+                    pokemonDetails = await fetch(randomPokemon.url).then(res => res.json());
+                } catch (error) {
+                    console.error(`Error fetching details for ${randomPokemon.name}:`, error);
+                    continue; // Skip this Pokémon and try the next one
+                }
 
                 // Apply rules
                 if (rules.noDuplicates && team.some(p => p.name === randomPokemon.name)) continue;

@@ -1,0 +1,125 @@
+/* Global Styles */
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+body {
+    font-family: Georgia, Garamond;
+    background-color: #f5f5f5;
+}
+
+/* Header and Footer */
+header, footer {
+    background-color: #0048ff;
+    color: white;
+    padding: 15px 0;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+header a img {
+    height: 50px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 24px;
+    flex-grow: 1;
+    text-align: center;
+}
+
+nav {
+    display: flex;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 18px;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* Main Content */
+main {
+    flex: 1;
+    text-align: center;
+    padding: 20px;
+}
+
+button {
+    margin-top: 20px; /* Adds space between Pokémon team and the button */
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #000000;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #ff0000;
+}
+
+/* Pokémon Team Layout */
+.team {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    justify-items: center;
+    margin-top: 20px;
+}
+
+.pokemon {
+    text-align: center;
+    width: 200px;
+}
+
+.pokemon img {
+    width: 150px;
+    height: 150px;
+}
+
+.pokemon p {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 10px 0 0;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+}
+
+footer a {
+    color: white;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .team {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .team {
+        grid-template-columns: 1fr;
+    }
+}

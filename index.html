@@ -4,102 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Random Pokémon Team Generator</title>
-    <style>
-        html, body {
-            height: 100%;
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-        }
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f5f5f5;
-        }
-        header, footer {
-            background-color: #2d72d9;
-            color: white;
-            padding: 15px 0;
-        }
-        header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 20px;
-        }
-        header a img {
-            height: 50px;
-        }
-        header h1 {
-            margin: 0;
-            font-size: 24px;
-            flex-grow: 1;
-            text-align: center;
-        }
-        nav {
-            display: flex;
-        }
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 10px;
-            font-size: 18px;
-        }
-        nav a:hover {
-            text-decoration: underline;
-        }
-        main {
-            flex: 1;
-            text-align: center;
-            padding: 20px;
-        }
-        button {
-            padding: 10px 20px;
-            font-size: 16px;
-            background-color: #4caf50;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #45a049;
-        }
-        .team {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-            justify-items: center;
-            margin-top: 20px;
-        }
-        .pokemon {
-            text-align: center;
-            width: 200px;
-        }
-        .pokemon img {
-            width: 150px;
-            height: 150px;
-        }
-        .pokemon p {
-            font-size: 20px;
-            font-weight: bold;
-            margin: 10px 0 0;
-        }
-        footer {
-            text-align: center;
-        }
-
-        @media (max-width: 768px) {
-            .team {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .team {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
     <header>
@@ -115,8 +20,8 @@
 
     <main>
         <h2>Random Pokémon Team Generator</h2>
-        <button onclick="generateTeam()">Generate Team</button>
         <div class="team" id="team"></div>
+        <button onclick="generateTeam()">Generate Team</button>
     </main>
 
     <footer>
@@ -128,7 +33,6 @@
             Data and images provided by <a href="https://pokeapi.co/" target="_blank" style="color: white;">PokéAPI</a>. Pokémon and Pokémon character names are trademarks of Nintendo.
         </p>
     </footer>
-    
 
     <script>
         const API_BASE = "https://pokeapi.co/api/v2/pokemon";
